@@ -19,7 +19,7 @@
 
 .notas {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     padding-bottom: 20px;
 }
@@ -60,7 +60,7 @@ form {
 }
 
 /* Input de texto */
-input[type="text"] {
+input[type="text"] , input[type="number"] {
     width: 100%;
     padding: 10px;
     margin-top: 5px;
@@ -76,7 +76,7 @@ input[type="text"] {
     width: 100%;
 }
 
-.buttons button {
+.buttons button, #alter-side-btn {
     flex: 1; /* Cada botão ocupará o mesmo espaço */
     padding: 10px 0; /* Alinhamento vertical */
     border: none;
@@ -109,6 +109,10 @@ button:hover {
     color: white;
 }
 
+#data-table {
+    border-block: 1px solid black;
+}
+
 #data-table th {
     padding: 16px;
 }
@@ -129,8 +133,9 @@ button:hover {
 #alter-side-btn {
     position: absolute;
     margin: 24px;
-    width: 50px;
+    width: 100px;
     height: 50px;
+    top: 86vh;
 }
 
 .right-side #right-background-image {
@@ -236,10 +241,7 @@ footer {
     }
 }
 
-/* Ocultar o botão "Guardar" */
-#saveButton {
-    display: none;
-}
+
 
 /* Outros estilos seguem o já implementado anteriormente */
 

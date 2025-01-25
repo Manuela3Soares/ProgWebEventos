@@ -49,20 +49,34 @@ function assignGrades() {
         alert("Notas atribuidas fora do intervalo académico");
         return
     } else (nota1 <= 20 && nota2 <= 20 && nota3 <= 20); {
-        const media = (nota1 + nota2 + nota3) / 3;
+        const media = ((nota1 + nota2 + nota3) / 3).toFixed(2);
         let status = media >= 10 ? 'Aprovado' : media >= 5 ? 'Recurso' : 'Reprovado';
 
+        let student = students.find(x => x.matricula === matricula)
+
+        if(student != undefined) {
+            // Alterar notas
+            student.nota1 = nota1
+            student.nota2 = nota2
+            student.nota3 = nota3
+            student.media = media
+
+            // Gravar estudante
+            students[student] = student
+        } else {
+            students.push({
+                id: counter++,
+                name,
+                matricula,
+                nota1,
+                nota2,
+                nota3,
+                media: media,
+                status
+            });
+        }
       
-        students.push({
-            id: counter++,
-            name,
-            matricula,
-            nota1,
-            nota2,
-            nota3,
-            media: media.toFixed(2),
-            status
-    });
+        
 
         alert(`Notas de ${name} atribuídas com sucesso!`);
         clearForm();
